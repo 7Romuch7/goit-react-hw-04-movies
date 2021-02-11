@@ -14,11 +14,12 @@ export default class Reviews extends Component {
 
         const response = await axios.get(`${BASE_URL}movie/${this.props.match.url.split('/', 3)[2]}/reviews?api_key=${KEY}&language=en-US&page=1`)
         //console.log(response.data);
-            this.setState({...response.data})
+            this.setState({reviews: response.data.results})
     
     }
 
     render() {
+        console.log(this.state.reviews)
         return (
             <div>
                 {this.state.reviews.length > 0 && (
